@@ -16,7 +16,5 @@ public interface SpecificScheduleDao {
 	
 	public List<SpecificSchedule> getSpecificScheduleList(EntityManager entityManager);
 
-	public String getAirconName(EntityManager entityManager);
-
 
 }

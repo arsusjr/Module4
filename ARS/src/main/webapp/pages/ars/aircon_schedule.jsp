@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!--
   GOODLUCK 
@@ -172,22 +171,21 @@
         <thead>
           <tr>
               <th data-field="reserved_by">Unit</th>
-              <th data-field="reserved_to">Day</th>
-              <th data-field="data">Time Start</th>
-              <th data-field="start_time">Time End</th>
+              <th data-field="reserved_to">Date</th>
+              <th data-field="data">From - To</th>
+              <th data-field="start_time">Created by - on</th>
               <th data-field="end_time">Modified by - on</th>
               <th data-field="end_time">Actions</th>
           </tr>
         </thead>
 
         <tbody>
-        <c:forEach var="aircon_sched" items="${specific_schedule_list}">
           <tr>
-            <td>${aircon_name}</td>
-            <td>${aircon_sched.date}</td>
-            <td></td>
-            <td></td>
-            <td>MODIFIED BY ON</td>
+            <td>model 200-29</td>
+            <td>Eclair</td>
+            <td>10-12-2015</td>
+            <td>9:00 AM</td>
+            <td>10:00 AM</td>
             <td>
               <a href="#edit_sched" class="btn-floating btn-small waves-effect waves-light blue modal-trigger">
                 <i class="material-icons">edit</i>
@@ -197,7 +195,36 @@
               </a>
             </td>
           </tr>
-          </c:forEach>
+          <tr>
+            <td>Panasonic bla bla</td>
+            <td>Jellybean</td>
+            <td>10-18-2015</td>
+            <td>12:00 PM</td>
+            <td>7:00 PM</td>
+            <td>
+              <a href="#edit_sched" class="btn-floating btn-small waves-effect waves-light blue modal-trigger">
+                <i class="material-icons">edit</i>
+              </a>
+              <a href="#delete_sched" class="btn-floating btn-small waves-effect waves-light red modal-trigger">
+                <i class="material-icons">delete</i>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>CDR king</td>
+            <td>Lollipop</td>
+            <td>11-3-2015</td>
+            <td>8:00 AM</td>
+            <td>12:00 PM</td>
+            <td>
+              <a href="#edit_sched" class="btn-floating btn-small waves-effect waves-light blue modal-trigger">
+                <i class="material-icons">edit</i>
+              </a>
+              <a href="#delete_sched" class="btn-floating btn-small waves-effect waves-light red modal-trigger">
+                <i class="material-icons">delete</i>
+              </a>
+            </td>
+          </tr>
         </tbody>
       </table>
       </div>

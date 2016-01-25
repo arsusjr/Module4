@@ -34,6 +34,7 @@ public class AirconDaoImpl implements AirconDao {
 		EntityTransaction transaction = entityManager.getTransaction();
 		try {
 			transaction.begin();
+			System.out.println("BEFORE PERSIST: " + airconObject.toString());
 			entityManager.persist(airconObject);
 			transaction.commit();
 		} catch (Exception e) {

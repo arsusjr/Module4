@@ -15,39 +15,26 @@ import ph.com.alliance.entity.Aircon;
 import ph.com.alliance.entity.SpecificSchedule;
 import ph.com.alliance.service.ARSService;
 
-@Controller
-@RequestMapping("/ars")
 public class SpecificScheduleController {
+	@Controller
+	@RequestMapping("/ars")
+	public class AirconController {
 
-	@Autowired
-	private ARSService aRSService;
+		@Autowired
+		private ARSService aRSService;
+		
+	    @RequestMapping(value = "/aircon_schedule", method = RequestMethod.GET)
+	    public String viewAirconSchedule(HttpServletRequest request, HttpServletResponse response, ModelMap map) {
+	    	System.out.println("-- AIRCON SCHEDULE VIEW --");
+	    	
+	    	List<SpecificSchedule> specific_schedule_list = aRSService.getSpecificScheduleList();
+	    	
+	    	map.addAttribute("specific_schedule_list", specific_schedule_list);
 
-	@RequestMapping(value = "/aircon_schedule", method = RequestMethod.GET)
-	public String viewAirconSchedule(HttpServletRequest request, HttpServletResponse response, ModelMap map) {
-		System.out.println("-- AIRCON SCHEDULE VIEW --");
-
-		List<SpecificSchedule> specific_schedule_list = aRSService.getSpecificScheduleList();
-		List<Aircon> aircon_list = aRSService.getAirconList();
-
-		String aircon_name;
-		int a, b, aircon_sched_id, aircon_id;
-		for (a = 0; a < aircon_list.size(); a++) {
-			aircon_sched_id = specific_schedule_list.get(a).getAirconId();
-			aircon_id = aircon_list.get(a).getId();
-			System.out.println(aircon_sched_id + " : " + aircon_id);
-
-			if (aircon_sched_id == aircon_id) {
-
-				aircon_name = aircon_list.get(a).getName();
-				System.out.println(aircon_name);
-				map.addAttribute("aircon_name", aircon_name);
-			}
-		}
-
-		map.addAttribute("specific_schedule_list", specific_schedule_list);
-
-		return "ars/aircon_schedule";
-
+	        return "ars/aircon_schedule";
+	    }
+		
+	    
 	}
 
 }
